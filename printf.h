@@ -25,4 +25,3 @@ int	ft_put_unsigned(unsigned int n);
 int	ft_puthex(unsigned long n, int uppercase);
 
 #endif
-MTUwNzU5NzQ1OTk3MzYwMzM0OA.GMvRv1.8TzmKsF5fhwHffvZ2zxcVWQ4fsUjsfLR7CUC08
