@@ -1,28 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_putunsigned_p.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: snagasak <snagasak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/02 21:12:32 by snagasak          #+#    #+#             */
-/*   Updated: 2026/05/16 00:36:46 by snagasak         ###   ########.fr       */
+/*   Created: 2026/05/30 05:42:08 by snagasak          #+#    #+#             */
+/*   Updated: 2026/06/03 01:32:15 by snagasak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include"ft_printf.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+static void ft_putnbr(unsigned int n)
 {
-	void	*buffer;
+	char ans;
+	if(n >= 10)
+	ft_putnbr(n / 10);
+	ans = n % 10 + '0';
+	write(1, &ans , 1);
+}
 
-	if (nmemb == 0 || size == 0)
-		return (malloc(1));
-	if (nmemb > SIZE_MAX / size)
-		return (NULL);
-	buffer = malloc((nmemb * size));
-	if (!buffer)
-		return (NULL);
-	ft_bzero(buffer, (nmemb * size));
-	return (buffer);
+int ft_putunsigned_p(unsigned int n)
+{
+	unsigned int nbr;
+	unsigned int count;
+	nbr = n;
+	count = 0;
+	if(n == 0)
+	{
+		write(1, "0" , 1);
+		return(1);
+	}
+	while(nbr > 0)
+	{
+		nbr = nbr / 10;
+		count++;
+	}
+	ft_putnbr(n);
+	return(count);
 }

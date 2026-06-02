@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   printf.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: snagasak <snagasak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/02 08:04:30 by snagasak          #+#    #+#             */
-/*   Updated: 2026/05/15 00:32:17 by snagasak         ###   ########.fr       */
+/*   Created: 2026/05/18 22:33:49 by snagasak          #+#    #+#             */
+/*   Updated: 2026/06/03 00:10:49 by snagasak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef PRINTF_H
+# define PRINTF_H
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
-{
-	size_t				i;
-	const unsigned char	*us1;
-	const unsigned char	*us2;
+# include <stdarg.h>
+# include <unistd.h>
 
-	i = 0;
-	us1 = (const unsigned char *)s1;
-	us2 = (const unsigned char *)s2;
-	while (i < n)
-	{
-		if (us1[i] != us2[i])
-			return (us1[i] - us2[i]);
-		i++;
-	}
-	return (0);
-}
+int	ft_printf(const char *format, ...);
+int	ft_putchar_p(char c);
+int	ft_putstr_p(char *s);
+int	ft_putptr_p(void *ptr);
+int	ft_putnbr_p(int n);
+int	ft_putunsigned_p(unsigned int n);
+int	ft_puthex_p(unsigned long n, int uppercase);
+
+#endif

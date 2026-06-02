@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_putstr_p.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: snagasak <snagasak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/28 21:41:58 by snagasak          #+#    #+#             */
-/*   Updated: 2026/05/15 00:42:08 by snagasak         ###   ########.fr       */
+/*   Created: 2026/05/30 06:10:11 by snagasak          #+#    #+#             */
+/*   Updated: 2026/06/03 00:13:17 by snagasak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-char	*ft_strnstr(const char *big, const char *little, size_t len)
+#include"ft_printf.h"
+int ft_putstr_p(char *s)
 {
-	size_t	i;
-	size_t	j;
-
-	i = 0;
-	if (little[0] == '\0')
-		return ((char *)big);
-	while (i < len && big[i] != '\0')
+	int len;
+	len = 0;
+	if(!s)
 	{
-		j = 0;
-		while ((i + j) < len && little[j] != '\0' && big[i + j] == little[j])
-			j++;
-		if (little[j] == '\0')
-			return ((char *)&big[i]);
-		i++;
+		write(1, "(null)", 6);
+		return(6);
 	}
-	return (NULL);
+	while(s[len])
+	{
+		write(1, &s[len], 1);
+		len++;
+	}
+	return(len);
 }

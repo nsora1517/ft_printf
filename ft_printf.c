@@ -6,67 +6,61 @@
 /*   By: snagasak <snagasak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/18 22:35:49 by snagasak          #+#    #+#             */
-/*   Updated: 2026/05/18 23:51:30 by snagasak         ###   ########.fr       */
+/*   Updated: 2026/06/03 01:00:39 by snagasak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
-// // int ft_printf(const char *format, ...)
-// // {
-
-// // }
-
-# include <stdio.h>
-
-void foo(char *fmt, ...)
+#include "ft_printf.h"
+static int handle_format(char spec, va_list *args)
 {
-	va_list ap;
-
-	va_start(ap, fmt);
-	while (fmt != NULL)
+	int count;
+	count = 0;
+	if(spec == 'c')
+	count = count + ft_putchar_p(va_arg(*args,int));
+	else if(spec == 's')
+	count = count + ft_putstr_p(va_arg(*args,char *));
+	else if(spec == 'd')
+	count = count + ft_putnbr_p(va_arg(*args,int));
+	else if(spec == 'p')
+	count = count + ft_putptr_p(va_arg(*args,void *));
+	else if(spec== 'i')
+	count = count + ft_putnbr_p(va_arg(*args,int));
+	else if(spec == 'u')
+	count = count + ft_putunsigned_p(va_arg(*args,unsigned int));
+	else if(spec == 'x')
+	count = count + ft_puthex_p(va_arg(*args,unsigned long),0);
+	else if(spec == 'X')
+	count = count + ft_puthex_p(va_arg(*args,unsigned long),1);
+	else if(spec == '%')
 	{
-		printf("%s\n", fmt);
-		fmt = va_arg(ap, char*);
+		write(1, "%" ,1);
+		count = count + 1;
 	}
-	va_end(ap);
+	return(count);
 }
 
-void	sum_product(double *sum, double *product, int n, ...)
+int ft_printf(const char *format, ...)
 {
-	va_list	ap;
-	va_list	dest;
-	int		i;
-
-	/* nからスタートさせているのがポイントです */
-	va_start(ap, n);
-	va_copy(dest,ap);
-
-	*sum = 0.0;
-	*product = 0.0;
-
-	/* 総和 */
-	for ( i = 0; i < n; i++ )
-		*sum += va_arg(ap, double);
-
-	/* 総乗 */
-	*product = va_arg(dest, double);
-
-	for ( i = 1; i < n; i++ )
-		*product *= va_arg(dest, double);
-
-	va_end(ap);
-	va_end(dest);
-}
-
-int main(void) {
-	double sum, product;
-
-	sum_product(&sum, &product, 4, 1.0, 2.0, 3.0, 4.0);
-
-	printf("総和: %.1f\n", sum);
-	printf("総乗: %.1f\n", product);
-	foo("aiueo", "test", "aaaaaa", NULL);
-	return 0;
-
-	return EXIT_SUCCESS;
+	va_list args;
+	int i;
+	int count;
+	i = 0;
+	count = 0;
+	va_start(args,format);
+	while(format[i] != '\0')
+	{
+		if(format[i] == '%')
+		{
+			count = count + handle_format(format[i + 1],&args);
+			i++;
+		}
+		else
+		{
+			write(1, &format[i] , 1);
+			count = count + 1;
+		}
+		i++;
+	}
+	va_end(args);
+	return(count);
 }

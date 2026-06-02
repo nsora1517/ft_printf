@@ -1,22 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*   ft_putchar_p.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: snagasak <snagasak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/10 18:40:43 by snagasak          #+#    #+#             */
-/*   Updated: 2026/05/15 16:37:22 by snagasak         ###   ########.fr       */
+/*   Created: 2026/05/30 05:49:19 by snagasak          #+#    #+#             */
+/*   Updated: 2026/06/03 00:12:54 by snagasak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include"ft_printf.h"
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+int ft_putchar_p(char c)
 {
-	while (lst != NULL)
-	{
-		f(lst->content);
-		lst = lst->next;
-	}
+	write(1,&c,1);
+	return(1);
 }
