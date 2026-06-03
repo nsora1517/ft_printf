@@ -6,7 +6,7 @@
 /*   By: snagasak <snagasak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/30 06:28:36 by snagasak          #+#    #+#             */
-/*   Updated: 2026/06/03 00:13:11 by snagasak         ###   ########.fr       */
+/*   Updated: 2026/06/04 01:01:48 by snagasak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,19 @@
 int ft_putptr_p(void *ptr)
 {
 	int ans;
+	int check;
 	if(ptr == NULL)
 	{
-		write(1,"(nil)",5);
+		check = write(1,"(nil)",5);
+		if(check == -1)
+		return(-1);
 		return(5);
 	}
-	write(1,"0x",2);
+	check = write(1,"0x",2);
+	if(check == -1)
+	return(-1);
 	ans = ft_puthex_p((unsigned long)ptr,0);
+	if(ans == -1)
+	return(-1);
 	return(ans + 2);
 }

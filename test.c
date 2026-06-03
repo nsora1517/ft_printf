@@ -84,5 +84,8 @@ int main(void)
     ret2 = printf("og: 100%%\n");
     printf("ft_ret:%d og_ret:%d\n\n", ret1, ret2);
 
+	ft_printf("a: hello %a");
+
+
     return 0;
 }

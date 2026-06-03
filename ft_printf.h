@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.h                                           :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: snagasak <snagasak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/18 22:33:49 by snagasak          #+#    #+#             */
-/*   Updated: 2026/06/03 00:10:49 by snagasak         ###   ########.fr       */
+/*   Updated: 2026/06/04 02:05:17 by snagasak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,6 @@ int	ft_putptr_p(void *ptr);
 int	ft_putnbr_p(int n);
 int	ft_putunsigned_p(unsigned int n);
 int	ft_puthex_p(unsigned long n, int uppercase);
+// int live_a(void);
 
 #endif
