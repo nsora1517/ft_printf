@@ -6,7 +6,7 @@
 /*   By: snagasak <snagasak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/18 22:35:49 by snagasak          #+#    #+#             */
-/*   Updated: 2026/06/06 21:15:01 by snagasak         ###   ########.fr       */
+/*   Updated: 2026/06/06 22:20:00 by snagasak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static int	handle_num(char spec, va_list *args)
 	else if (spec == 'u')
 		return (ft_putunsigned_p(va_arg(*args, unsigned int)));
 	else if (spec == 'x' || spec == 'X')
-		return (ft_puthex_p(va_arg(*args, unsigned long), spec == 'X'));
+		return (ft_puthex_p(va_arg(*args, unsigned int), spec == 'X'));
 	return (0);
 }
 
@@ -56,8 +56,8 @@ static int	handle_format(char spec, va_list *args)
 			return (-1);
 		count = count + check;
 	}
-	// else if(spec == 'a')
-	// count = count + live_a();
+	// else if (spec == 'a')
+	// 	count = count + live_a();
 	return (count);
 }
 
