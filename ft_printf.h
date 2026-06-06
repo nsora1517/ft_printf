@@ -6,12 +6,12 @@
 /*   By: snagasak <snagasak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/18 22:33:49 by snagasak          #+#    #+#             */
-/*   Updated: 2026/06/04 02:05:17 by snagasak         ###   ########.fr       */
+/*   Updated: 2026/06/06 18:55:44 by snagasak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTF_H
-# define PRINTF_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
 # include <stdarg.h>
 # include <unistd.h>

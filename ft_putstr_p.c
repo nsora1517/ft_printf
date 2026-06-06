@@ -6,29 +6,31 @@
 /*   By: snagasak <snagasak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/30 06:10:11 by snagasak          #+#    #+#             */
-/*   Updated: 2026/06/04 00:37:28 by snagasak         ###   ########.fr       */
+/*   Updated: 2026/06/06 18:50:45 by snagasak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"ft_printf.h"
-int ft_putstr_p(char *s)
+#include "ft_printf.h"
+
+int	ft_putstr_p(char *s)
 {
-	int len;
-	int check;
+	int	len;
+	int	check;
+
 	len = 0;
-	if(!s)
+	if (!s)
 	{
 		check = write(1, "(null)", 6);
-		if(check == -1)
-		return(-1);
-		return(6);
+		if (check == -1)
+			return (-1);
+		return (6);
 	}
-	while(s[len])
+	while (s[len])
 	{
 		check = write(1, &s[len], 1);
-		if(check == -1)
-		return(-1);
+		if (check == -1)
+			return (-1);
 		len++;
 	}
-	return(len);
+	return (len);
 }
