@@ -6,7 +6,7 @@
 /*   By: snagasak <snagasak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/02 01:28:24 by snagasak          #+#    #+#             */
-/*   Updated: 2026/06/06 18:50:39 by snagasak         ###   ########.fr       */
+/*   Updated: 2026/06/11 19:24:59 by snagasak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,3 @@ int	ft_puthex_p(unsigned long n, int uppercase)
 	len = count_len(n);
 	return (len);
 }
-
-// int main(){
-// 	ft_puthex_p(1000,0);
-// }

@@ -6,7 +6,7 @@
 /*   By: snagasak <snagasak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/18 22:35:49 by snagasak          #+#    #+#             */
-/*   Updated: 2026/06/06 22:20:00 by snagasak         ###   ########.fr       */
+/*   Updated: 2026/06/12 20:04:40 by snagasak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,15 +49,14 @@ static int	handle_format(char spec, va_list *args)
 			return (-1);
 		count = count + check;
 	}
-	if (spec == 'd' || spec == 'i' || spec == 'u' || spec == 'x' || spec == 'X')
+	else if (spec == 'd' || spec == 'i' || spec == 'u' || spec == 'x'
+		|| spec == 'X')
 	{
 		check = handle_num(spec, args);
 		if (check == -1)
 			return (-1);
 		count = count + check;
 	}
-	// else if (spec == 'a')
-	// 	count = count + live_a();
 	return (count);
 }
 
@@ -80,6 +79,8 @@ int	ft_printf(const char *format, ...)
 
 	i = 0;
 	count = 0;
+	if (format == NULL)
+		return (-1);
 	va_start(args, format);
 	while (format[i] != '\0')
 	{
